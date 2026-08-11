@@ -25,7 +25,7 @@ buildDotnetModule (finalAttrs: {
   __structuredAttrs = true;
 
   meta = {
-    description = "";
+    description = "Export fixed-output derivations from the Nix store into portable dumps with a restore script";
     homepage = "https://github.com/yueyinqiu/NixFodExporter";
     license = lib.licenses.mit;
     mainProgram = "NixFodExporter";
