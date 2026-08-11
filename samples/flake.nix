@@ -17,7 +17,7 @@
         };
         recursiveFod = pkgs.fetchzip {
           url = "https://github.com/NixOS/patchelf/archive/refs/tags/0.18.0.tar.gz";
-          sha256 = "sha256-5zQ7fQCHY1R4YKoy+HpYDJWBkSPdB8nLP+mkfw0jwV8=";
+          sha256 = "sha256-v8hMcFVtTknn1LMfRCDQa/bYgP/bpsPhSYp01TiCtew=";
         };
       };
     };

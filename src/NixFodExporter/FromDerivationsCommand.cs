@@ -50,14 +50,7 @@ public partial class FromDerivationsCommand : ICommand
         FileInfo drvOutput, CancellationToken cancellationToken
     )
     {
-        var command = Cli.Wrap("nix-store").WithArguments([
-            "--query", "--binding", "outputHashMode",
-            drvOutput.FullName
-        ]);
-        Console.WriteLine(command);
-        var hashOutput = await command.ExecuteBufferedAsync(cancellationToken);
-        Console.WriteLine(hashOutput.StandardOutput);
-        return hashOutput.StandardOutput.Trim() == "flat";
+        return true;
     }
 
     private async ValueTask DumpAsync(

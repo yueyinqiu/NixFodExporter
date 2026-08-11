@@ -1,5 +1,184 @@
 {
   "derivations": {
+    "19pgr86rjyarwz4z01b7x9x6pnk3jvfw-source.drv": {
+      "args": [
+        "-e",
+        "/nix/store/l622p70vy8k5sh7y5wizi5f2mic6ynpg-source-stdenv.sh",
+        "/nix/store/vvlgjnnch92k53af32iwim3d7jdxai3y-builder.sh"
+      ],
+      "builder": "/nix/store/7ik8057hajl6vq9j40h3jracxjn0bb5x-bash-5.3p15/bin/bash",
+      "env": {
+        "out": "/nix/store/7vrf99j373vd33kclsfbgmf6ks6rr757-source"
+      },
+      "inputs": {
+        "drvs": {
+          "4wakc4jqkw3sva9f746mln5r9zs5qwxz-bash-5.3p15.drv": {
+            "dynamicOutputs": {},
+            "outputs": [
+              "out"
+            ]
+          },
+          "7di6jzjd09pfrgf4nwsq5a0gm3ac00wd-unzip-6.0.drv": {
+            "dynamicOutputs": {},
+            "outputs": [
+              "out"
+            ]
+          },
+          "7j8c27vydzhv0yhpp4bk2hgkpdzzgv9i-stdenv-linux-no-cc.drv": {
+            "dynamicOutputs": {},
+            "outputs": [
+              "out"
+            ]
+          },
+          "nfw9vb2in01gsch9fixpnrgi1wc6x91h-curl-8.21.0.drv": {
+            "dynamicOutputs": {},
+            "outputs": [
+              "dev"
+            ]
+          },
+          "w8srap4250wwihi406w7gr4x0mx03yqb-glibc-locales-2.42-67.drv": {
+            "dynamicOutputs": {},
+            "outputs": [
+              "out"
+            ]
+          },
+          "wdq1zz5zkp17n7h52vqz7ww22b294454-mirrors-list.drv": {
+            "dynamicOutputs": {},
+            "outputs": [
+              "out"
+            ]
+          }
+        },
+        "srcs": [
+          "l622p70vy8k5sh7y5wizi5f2mic6ynpg-source-stdenv.sh",
+          "vvlgjnnch92k53af32iwim3d7jdxai3y-builder.sh"
+        ]
+      },
+      "name": "source",
+      "outputs": {
+        "out": {
+          "hash": "sha256-v8hMcFVtTknn1LMfRCDQa/bYgP/bpsPhSYp01TiCtew=",
+          "method": "nar"
+        }
+      },
+      "structuredAttrs": {
+        "SSL_CERT_FILE": "/no-cert-file.crt",
+        "buildInputs": [],
+        "builder": "/nix/store/7ik8057hajl6vq9j40h3jracxjn0bb5x-bash-5.3p15/bin/bash",
+        "cmakeFlags": [],
+        "configureFlags": [],
+        "curlOpts": "",
+        "curlOptsList": [],
+        "depsBuildBuild": [],
+        "depsBuildBuildPropagated": [],
+        "depsBuildTarget": [],
+        "depsBuildTargetPropagated": [],
+        "depsHostHost": [],
+        "depsHostHostPropagated": [],
+        "depsTargetTarget": [],
+        "depsTargetTargetPropagated": [],
+        "doCheck": false,
+        "doInstallCheck": false,
+        "downloadToTemp": true,
+        "env": {
+          "SSL_CERT_FILE": "/no-cert-file.crt"
+        },
+        "executable": false,
+        "hash": "sha256-v8hMcFVtTknn1LMfRCDQa/bYgP/bpsPhSYp01TiCtew=",
+        "impureEnvVars": [
+          "http_proxy",
+          "https_proxy",
+          "ftp_proxy",
+          "all_proxy",
+          "no_proxy",
+          "HTTP_PROXY",
+          "HTTPS_PROXY",
+          "FTP_PROXY",
+          "ALL_PROXY",
+          "NO_PROXY",
+          "NIX_SSL_CERT_FILE",
+          "NIX_CURL_FLAGS",
+          "NIX_HASHED_MIRRORS",
+          "NIX_CONNECT_TIMEOUT",
+          "NIX_MIRRORS_alsa",
+          "NIX_MIRRORS_apache",
+          "NIX_MIRRORS_bioc",
+          "NIX_MIRRORS_bitlbee",
+          "NIX_MIRRORS_centos",
+          "NIX_MIRRORS_cpan",
+          "NIX_MIRRORS_cran",
+          "NIX_MIRRORS_debian",
+          "NIX_MIRRORS_dub",
+          "NIX_MIRRORS_fedora",
+          "NIX_MIRRORS_gcc",
+          "NIX_MIRRORS_gentoo",
+          "NIX_MIRRORS_gnome",
+          "NIX_MIRRORS_gnu",
+          "NIX_MIRRORS_gnupg",
+          "NIX_MIRRORS_hackage",
+          "NIX_MIRRORS_hashedMirrors",
+          "NIX_MIRRORS_ibiblioPubLinux",
+          "NIX_MIRRORS_imagemagick",
+          "NIX_MIRRORS_kde",
+          "NIX_MIRRORS_kernel",
+          "NIX_MIRRORS_luarocks",
+          "NIX_MIRRORS_maven",
+          "NIX_MIRRORS_mozilla",
+          "NIX_MIRRORS_mysql",
+          "NIX_MIRRORS_openbsd",
+          "NIX_MIRRORS_opensuse",
+          "NIX_MIRRORS_osdn",
+          "NIX_MIRRORS_postgresql",
+          "NIX_MIRRORS_pypi",
+          "NIX_MIRRORS_qt",
+          "NIX_MIRRORS_sageupstream",
+          "NIX_MIRRORS_samba",
+          "NIX_MIRRORS_savannah",
+          "NIX_MIRRORS_sourceforge",
+          "NIX_MIRRORS_steamrt",
+          "NIX_MIRRORS_tcsh",
+          "NIX_MIRRORS_testpypi",
+          "NIX_MIRRORS_texhistoric",
+          "NIX_MIRRORS_ubuntu",
+          "NIX_MIRRORS_xfce",
+          "NIX_MIRRORS_xorg"
+        ],
+        "mesonFlags": [],
+        "mirrorsFile": "/nix/store/7xn3qffdvfjq1nxi1ya9qrqs15x279xg-mirrors-list",
+        "name": "source",
+        "nativeBuildInputs": [
+          "/nix/store/cgc2kkyzjz6315sczgqw1hv8xgcb3n16-curl-8.21.0-dev",
+          "/nix/store/zl24zlv14bs4g1rxji636jwyz58z870l-unzip-6.0",
+          "/nix/store/9536yx5h2hn6vspjg6bnizrdvz7syf4a-glibc-locales-2.42-67"
+        ],
+        "nixpkgsVersion": "26.11",
+        "outputChecks": {
+          "out": {}
+        },
+        "outputHash": "sha256-v8hMcFVtTknn1LMfRCDQa/bYgP/bpsPhSYp01TiCtew=",
+        "outputHashMode": "recursive",
+        "outputs": [
+          "out"
+        ],
+        "patches": [],
+        "postFetch": "unpackDir=\"$TMPDIR/unpack\"\nmkdir \"$unpackDir\"\ncd \"$unpackDir\"\n\nrenamed=\"$TMPDIR/0.18.0.tar.gz\"\nmv \"$downloadedFile\" \"$renamed\"\nunpackFile \"$renamed\"\nchmod -R +w \"$unpackDir\"\nif [ $(ls -A \"$unpackDir\" | wc -l) != 1 ]; then\n  echo \"error: zip file must contain a single file or directory.\"\n  echo \"hint: Pass stripRoot=false; to fetchzip to assume flat list of files.\"\n  exit 1\nfi\nfn=$(cd \"$unpackDir\" && ls -A)\nif [ -f \"$unpackDir/$fn\" ]; then\n  mkdir $out\nfi\nmv \"$unpackDir/$fn\" \"$out\"\n\n\nchmod 755 \"$out\"\n",
+        "preferHashedMirrors": false,
+        "preferLocalBuild": true,
+        "propagatedBuildInputs": [],
+        "propagatedNativeBuildInputs": [],
+        "recursiveHash": true,
+        "showURLs": false,
+        "stdenv": "/nix/store/7hl43a3zjil847l66i3ml2adhnmbyw3p-stdenv-linux-no-cc",
+        "strictDeps": false,
+        "stripRoot": true,
+        "system": "x86_64-linux",
+        "urls": [
+          "https://github.com/NixOS/patchelf/archive/refs/tags/0.18.0.tar.gz"
+        ]
+      },
+      "system": "x86_64-linux",
+      "version": 4
+    },
     "pvycxhhaas1b6r6f74p3hj91vr8wddzw-README.md.drv": {
       "args": [
         "-e",
@@ -158,185 +337,6 @@
         "system": "x86_64-linux",
         "urls": [
           "https://raw.githubusercontent.com/NixOS/nix/master/README.md"
-        ]
-      },
-      "system": "x86_64-linux",
-      "version": 4
-    },
-    "qcba9w2fly3pk0rxidn780vryjk9ban7-source.drv": {
-      "args": [
-        "-e",
-        "/nix/store/l622p70vy8k5sh7y5wizi5f2mic6ynpg-source-stdenv.sh",
-        "/nix/store/vvlgjnnch92k53af32iwim3d7jdxai3y-builder.sh"
-      ],
-      "builder": "/nix/store/7ik8057hajl6vq9j40h3jracxjn0bb5x-bash-5.3p15/bin/bash",
-      "env": {
-        "out": "/nix/store/z56cpww884fwvhragzj2w98pb1r983x8-source"
-      },
-      "inputs": {
-        "drvs": {
-          "4wakc4jqkw3sva9f746mln5r9zs5qwxz-bash-5.3p15.drv": {
-            "dynamicOutputs": {},
-            "outputs": [
-              "out"
-            ]
-          },
-          "7di6jzjd09pfrgf4nwsq5a0gm3ac00wd-unzip-6.0.drv": {
-            "dynamicOutputs": {},
-            "outputs": [
-              "out"
-            ]
-          },
-          "7j8c27vydzhv0yhpp4bk2hgkpdzzgv9i-stdenv-linux-no-cc.drv": {
-            "dynamicOutputs": {},
-            "outputs": [
-              "out"
-            ]
-          },
-          "nfw9vb2in01gsch9fixpnrgi1wc6x91h-curl-8.21.0.drv": {
-            "dynamicOutputs": {},
-            "outputs": [
-              "dev"
-            ]
-          },
-          "w8srap4250wwihi406w7gr4x0mx03yqb-glibc-locales-2.42-67.drv": {
-            "dynamicOutputs": {},
-            "outputs": [
-              "out"
-            ]
-          },
-          "wdq1zz5zkp17n7h52vqz7ww22b294454-mirrors-list.drv": {
-            "dynamicOutputs": {},
-            "outputs": [
-              "out"
-            ]
-          }
-        },
-        "srcs": [
-          "l622p70vy8k5sh7y5wizi5f2mic6ynpg-source-stdenv.sh",
-          "vvlgjnnch92k53af32iwim3d7jdxai3y-builder.sh"
-        ]
-      },
-      "name": "source",
-      "outputs": {
-        "out": {
-          "hash": "sha256-5zQ7fQCHY1R4YKoy+HpYDJWBkSPdB8nLP+mkfw0jwV8=",
-          "method": "nar"
-        }
-      },
-      "structuredAttrs": {
-        "SSL_CERT_FILE": "/no-cert-file.crt",
-        "buildInputs": [],
-        "builder": "/nix/store/7ik8057hajl6vq9j40h3jracxjn0bb5x-bash-5.3p15/bin/bash",
-        "cmakeFlags": [],
-        "configureFlags": [],
-        "curlOpts": "",
-        "curlOptsList": [],
-        "depsBuildBuild": [],
-        "depsBuildBuildPropagated": [],
-        "depsBuildTarget": [],
-        "depsBuildTargetPropagated": [],
-        "depsHostHost": [],
-        "depsHostHostPropagated": [],
-        "depsTargetTarget": [],
-        "depsTargetTargetPropagated": [],
-        "doCheck": false,
-        "doInstallCheck": false,
-        "downloadToTemp": true,
-        "env": {
-          "SSL_CERT_FILE": "/no-cert-file.crt"
-        },
-        "executable": false,
-        "hash": "sha256-5zQ7fQCHY1R4YKoy+HpYDJWBkSPdB8nLP+mkfw0jwV8=",
-        "impureEnvVars": [
-          "http_proxy",
-          "https_proxy",
-          "ftp_proxy",
-          "all_proxy",
-          "no_proxy",
-          "HTTP_PROXY",
-          "HTTPS_PROXY",
-          "FTP_PROXY",
-          "ALL_PROXY",
-          "NO_PROXY",
-          "NIX_SSL_CERT_FILE",
-          "NIX_CURL_FLAGS",
-          "NIX_HASHED_MIRRORS",
-          "NIX_CONNECT_TIMEOUT",
-          "NIX_MIRRORS_alsa",
-          "NIX_MIRRORS_apache",
-          "NIX_MIRRORS_bioc",
-          "NIX_MIRRORS_bitlbee",
-          "NIX_MIRRORS_centos",
-          "NIX_MIRRORS_cpan",
-          "NIX_MIRRORS_cran",
-          "NIX_MIRRORS_debian",
-          "NIX_MIRRORS_dub",
-          "NIX_MIRRORS_fedora",
-          "NIX_MIRRORS_gcc",
-          "NIX_MIRRORS_gentoo",
-          "NIX_MIRRORS_gnome",
-          "NIX_MIRRORS_gnu",
-          "NIX_MIRRORS_gnupg",
-          "NIX_MIRRORS_hackage",
-          "NIX_MIRRORS_hashedMirrors",
-          "NIX_MIRRORS_ibiblioPubLinux",
-          "NIX_MIRRORS_imagemagick",
-          "NIX_MIRRORS_kde",
-          "NIX_MIRRORS_kernel",
-          "NIX_MIRRORS_luarocks",
-          "NIX_MIRRORS_maven",
-          "NIX_MIRRORS_mozilla",
-          "NIX_MIRRORS_mysql",
-          "NIX_MIRRORS_openbsd",
-          "NIX_MIRRORS_opensuse",
-          "NIX_MIRRORS_osdn",
-          "NIX_MIRRORS_postgresql",
-          "NIX_MIRRORS_pypi",
-          "NIX_MIRRORS_qt",
-          "NIX_MIRRORS_sageupstream",
-          "NIX_MIRRORS_samba",
-          "NIX_MIRRORS_savannah",
-          "NIX_MIRRORS_sourceforge",
-          "NIX_MIRRORS_steamrt",
-          "NIX_MIRRORS_tcsh",
-          "NIX_MIRRORS_testpypi",
-          "NIX_MIRRORS_texhistoric",
-          "NIX_MIRRORS_ubuntu",
-          "NIX_MIRRORS_xfce",
-          "NIX_MIRRORS_xorg"
-        ],
-        "mesonFlags": [],
-        "mirrorsFile": "/nix/store/7xn3qffdvfjq1nxi1ya9qrqs15x279xg-mirrors-list",
-        "name": "source",
-        "nativeBuildInputs": [
-          "/nix/store/cgc2kkyzjz6315sczgqw1hv8xgcb3n16-curl-8.21.0-dev",
-          "/nix/store/zl24zlv14bs4g1rxji636jwyz58z870l-unzip-6.0",
-          "/nix/store/9536yx5h2hn6vspjg6bnizrdvz7syf4a-glibc-locales-2.42-67"
-        ],
-        "nixpkgsVersion": "26.11",
-        "outputChecks": {
-          "out": {}
-        },
-        "outputHash": "sha256-5zQ7fQCHY1R4YKoy+HpYDJWBkSPdB8nLP+mkfw0jwV8=",
-        "outputHashMode": "recursive",
-        "outputs": [
-          "out"
-        ],
-        "patches": [],
-        "postFetch": "unpackDir=\"$TMPDIR/unpack\"\nmkdir \"$unpackDir\"\ncd \"$unpackDir\"\n\nrenamed=\"$TMPDIR/0.18.0.tar.gz\"\nmv \"$downloadedFile\" \"$renamed\"\nunpackFile \"$renamed\"\nchmod -R +w \"$unpackDir\"\nif [ $(ls -A \"$unpackDir\" | wc -l) != 1 ]; then\n  echo \"error: zip file must contain a single file or directory.\"\n  echo \"hint: Pass stripRoot=false; to fetchzip to assume flat list of files.\"\n  exit 1\nfi\nfn=$(cd \"$unpackDir\" && ls -A)\nif [ -f \"$unpackDir/$fn\" ]; then\n  mkdir $out\nfi\nmv \"$unpackDir/$fn\" \"$out\"\n\n\nchmod 755 \"$out\"\n",
-        "preferHashedMirrors": false,
-        "preferLocalBuild": true,
-        "propagatedBuildInputs": [],
-        "propagatedNativeBuildInputs": [],
-        "recursiveHash": true,
-        "showURLs": false,
-        "stdenv": "/nix/store/7hl43a3zjil847l66i3ml2adhnmbyw3p-stdenv-linux-no-cc",
-        "strictDeps": false,
-        "stripRoot": true,
-        "system": "x86_64-linux",
-        "urls": [
-          "https://github.com/NixOS/patchelf/archive/refs/tags/0.18.0.tar.gz"
         ]
       },
       "system": "x86_64-linux",
