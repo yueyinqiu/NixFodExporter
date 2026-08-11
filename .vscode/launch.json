@@ -12,7 +12,7 @@
                 "output",
                 "${workspaceFolder}/samples/derivation.json"
             ],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/src/NixFodExporter/bin/Debug/net10.0",
             "console": "integratedTerminal"
         }
     ]
