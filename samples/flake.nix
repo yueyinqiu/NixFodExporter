@@ -13,11 +13,11 @@
       packages.${system} = {
         flatFod = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/NixOS/nix/master/README.md";
-          sha256 = "1d8q663p5hpr5ly12n7zrqsqw06j4nndxsq6lh568sh6fchhy3z6";
+          sha256 = "sha256-5zQ7fQCHY1R4YKoy+HpYDJWBkSPdB8nLP+mkfw0jwV8=";
         };
         recursiveFod = pkgs.fetchzip {
           url = "https://github.com/NixOS/patchelf/archive/refs/tags/0.18.0.tar.gz";
-          sha256 = "1g6scxrq9zvhrm9k00kggl1j34m0a5a40yixc2r8g7c2vhf612v0";
+          sha256 = "sha256-5zQ7fQCHY1R4YKoy+HpYDJWBkSPdB8nLP+mkfw0jwV8=";
         };
       };
     };
