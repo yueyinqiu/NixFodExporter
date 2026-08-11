@@ -9,7 +9,8 @@
             "program": "${workspaceFolder}/src/NixFodExporter/bin/Debug/net10.0/NixFodExporter.dll",
             "args": [
                 "from-derivations",
-                "/home/yueyinqiu/t/TestAirgappedNixOS/derivation/derivation.json"
+                "output",
+                "${workspaceFolder}/samples/derivation.json"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal"

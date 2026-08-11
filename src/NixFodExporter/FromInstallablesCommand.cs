@@ -22,7 +22,8 @@ public partial class FromInstallablesCommand : ICommand
         var result = await command.ExecuteBufferedAsync(cancellationToken);
         await new FromDerivationsCommand()
         {
-            Output = this.Output
+            Output = this.Output,
+            Derivations = null!
         }.ExecuteAsync(result.StandardOutput, cancellationToken);
     }
 }
