@@ -1,0 +1,1 @@
+nix derivation show .#flatFod .#recursiveFod --pretty > derivations.json
