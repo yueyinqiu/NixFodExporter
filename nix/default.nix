@@ -13,7 +13,7 @@ buildDotnetModule (finalAttrs: {
     owner = "yueyinqiu";
     repo = "NixFodExporter";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-TA/MUSjoe5mknXxqkW8jpcgpoC7164mhoR4Ansx7tRM=";
+    hash = "sha256-/DUIlgUci3odFPldUE67lXNV/Hfb377i3xh3DdVt6+s=";
   };
 
   projectFile = "src/NixFodExporter/NixFodExporter.csproj";
