@@ -6,17 +6,17 @@
 }:
 
 buildDotnetModule (finalAttrs: {
-  pname = "snavi";
-  version = "0.0.4";
+  pname = "nix-fod-exporter";
+  version = "0.0.1";
 
   src = fetchFromGitHub {
     owner = "yueyinqiu";
-    repo = "Snavi";
+    repo = "NixFodExporter";
     rev = "v${finalAttrs.version}";
     hash = "sha256-TA/MUSjoe5mknXxqkW8jpcgpoC7164mhoR4Ansx7tRM=";
   };
 
-  projectFile = "src/Snavi/Snavi.csproj";
+  projectFile = "src/NixFodExporter/NixFodExporter.csproj";
   dotnet-sdk = dotnetCorePackages.sdk_10_0;
 
   nugetDeps = ./deps.nix;
@@ -25,10 +25,10 @@ buildDotnetModule (finalAttrs: {
   __structuredAttrs = true;
 
   meta = {
-    description = "A navi-like interactive command-line cheatsheet tool but it's more safe with structured cheat file and CSharp script support.";
-    homepage = "https://github.com/yueyinqiu/Snavi";
+    description = "";
+    homepage = "https://github.com/yueyinqiu/NixFodExporter";
     license = lib.licenses.mit;
-    mainProgram = "Snavi";
+    mainProgram = "NixFodExporter";
     maintainers = [ ];
   };
 })
