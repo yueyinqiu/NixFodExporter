@@ -10,7 +10,7 @@
             "args": [
                 "from-derivations",
                 "output",
-                "${workspaceFolder}/samples/derivation.json"
+                "${workspaceFolder}/samples/derivations.json"
             ],
             "cwd": "${workspaceFolder}/src/NixFodExporter/bin/Debug/net10.0",
             "console": "integratedTerminal"
