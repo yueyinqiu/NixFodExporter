@@ -17,22 +17,17 @@ public partial class FromDerivationsCommand : ICommand
     [CommandParameter(1)]
     public required FileInfo Derivations { get; set; }
 
-    private async IAsyncEnumerable<FileInfo> RealiseAsync(
-        string drv, [EnumeratorCancellation] CancellationToken cancellationToken)
+    private async ValueTask<FileInfo> RealiseAsync(
+        FileInfo drv, CancellationToken cancellationToken)
     {
         var command = Cli.Wrap("nix-store").WithArguments([
             "--realise",
-            Path.GetFullPath(drv, "/nix/store")
+            drv.FullName
         ]);
         Console.WriteLine(command);
         var output = await command.ExecuteBufferedAsync(cancellationToken);
         Console.WriteLine(output.StandardOutput);
-        foreach (var line in output.StandardOutput.Split(
-            Environment.NewLine,
-            StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
-        {
-            yield return new FileInfo(line);
-        }
+        return new FileInfo(output.StandardOutput.Trim());
     }
 
     private async ValueTask<string> QueryHashMethodAsync(
@@ -46,13 +41,6 @@ public partial class FromDerivationsCommand : ICommand
         return hashOutput.StandardOutput.Split(":", 2)[0];
     }
 
-    private async ValueTask<bool> QueryHashModeIsFlatAsync(
-        FileInfo drvOutput, CancellationToken cancellationToken
-    )
-    {
-        return true;
-    }
-
     private async ValueTask DumpAsync(
         FileInfo drvOutput, string outputPath, CancellationToken cancellationToken
     )
@@ -64,7 +52,7 @@ public partial class FromDerivationsCommand : ICommand
         Console.WriteLine("Dumped.");
     }
 
-    private async ValueTask ExecuteAsync(JsonNode? derivationsJson,  CancellationToken cancellationToken)
+    private async ValueTask ExecuteAsync(JsonNode? derivationsJson, CancellationToken cancellationToken)
     {
         var outputStoreDirectory = Output.CreateSubdirectory("store");
         await using var script = new StreamWriter(
@@ -76,33 +64,33 @@ public partial class FromDerivationsCommand : ICommand
         var derivations = derivationsJson?["derivations"];
         var fods = derivations?.AsObject()
             .Where(x => x.Value?["outputs"]?["out"]?["hash"] is not null)
-            .Select(x => x.Key) ?? [];
+            .Select(x => (
+                fod: new FileInfo(Path.GetFullPath(x.Key, "/nix/store")),
+                isFlat: ((string?)x.Value?["outputs"]?["out"]?["method"]) == "flat"
+            )) ?? [];
 
-        foreach (var fod in fods)
+        foreach (var (fod, isFlat) in fods)
         {
-            await foreach (var drvOutput in this.RealiseAsync(fod, cancellationToken))
-            {
-                await DumpAsync(drvOutput, Path.Combine(
-                    outputStoreDirectory.FullName, drvOutput.Name
-                ), cancellationToken);
+            var drvOutput = await this.RealiseAsync(fod, cancellationToken);
+            await DumpAsync(drvOutput, Path.Combine(
+                outputStoreDirectory.FullName, drvOutput.Name
+            ), cancellationToken);
 
-                var hashMethod = await QueryHashMethodAsync(drvOutput, cancellationToken);
-                var isFlat = await QueryHashModeIsFlatAsync(drvOutput, cancellationToken);
+            var hashMethod = await QueryHashMethodAsync(drvOutput, cancellationToken);
 
-                var shortName = drvOutput.Name.Split("-", 2)[1];
-                await script.WriteLineAsync(
-                    $"nix-store --restore temp/{shortName} < store/{drvOutput.Name}".AsMemory(),
-                    cancellationToken
-                );
-                await script.WriteLineAsync(
-                    $"nix-store --add-fixed {(isFlat ? "" : "--recursive ")}{hashMethod} temp/{shortName}".AsMemory(),
-                    cancellationToken
-                );
-                await script.WriteLineAsync(
-                    $"rm -rf temp/{shortName}".AsMemory(),
-                    cancellationToken
-                );
-            }
+            var shortName = drvOutput.Name.Split("-", 2)[1];
+            await script.WriteLineAsync(
+                $"nix-store --restore temp/{shortName} < store/{drvOutput.Name}".AsMemory(),
+                cancellationToken
+            );
+            await script.WriteLineAsync(
+                $"nix-store --add-fixed {(isFlat ? "" : "--recursive ")}{hashMethod} temp/{shortName}".AsMemory(),
+                cancellationToken
+            );
+            await script.WriteLineAsync(
+                $"rm -rf temp/{shortName}".AsMemory(),
+                cancellationToken
+            );
         }
     }
 
