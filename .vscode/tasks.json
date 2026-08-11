@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/Snavi/Snavi.csproj"
+                "${workspaceFolder}/src/NixFodExporter/NixFodExporter.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {
