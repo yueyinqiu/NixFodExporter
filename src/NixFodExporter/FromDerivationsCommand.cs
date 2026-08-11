@@ -56,9 +56,10 @@ public partial class FromDerivationsCommand : ICommand
     {
         var outputStoreDirectory = Output.CreateSubdirectory("store");
         await using var script = new StreamWriter(
-            Path.Join(Output.FullName, "store.sh")
+            Path.Join(Output.FullName, "restore.sh")
         );
         await script.WriteLineAsync("set -e".AsMemory(), cancellationToken);
+        await script.WriteLineAsync("""cd "$(dirname "$0")" """.AsMemory(), cancellationToken);
         await script.WriteLineAsync("mkdir -p temp".AsMemory(), cancellationToken);
 
         var derivations = derivationsJson?["derivations"];

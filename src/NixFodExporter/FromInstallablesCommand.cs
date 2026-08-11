@@ -22,7 +22,7 @@ public partial class FromInstallablesCommand : ICommand
         var command = Cli.Wrap("nix").WithArguments(["derivation", "show", "-r", .. Installables]);
         Console.WriteLine(command);
         var result = await command.ExecuteBufferedAsync(cancellationToken);
-        Console.WriteLine(result.StandardOutput);
+        Console.WriteLine("Resolved.");
         
         await new FromDerivationsCommand()
         {
